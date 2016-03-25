@@ -1,0 +1,21 @@
+h1 {
+  color: blue;
+}
+.selected {
+  color: #22bdf0;
+}
+
+
+.keg-form {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.cheap {
+  color: blue;
+}
+.expensive {
+  color: green;
+}
+.strong {
+  font-style: italic;
+}
