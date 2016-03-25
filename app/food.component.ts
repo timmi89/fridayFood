@@ -5,7 +5,7 @@ import { Food } from './food.model';
     selector: 'food-display',
     inputs: ['food'],
   template: `
-    <h3>{{food.name}}<br>{{ " you should know that: " + food.details }}<br>{{ " calories: " + food.calories }}</h3>
+    <h3>{{food.name}}</h3>
 
     `
   // <button (click)="minusFood(food)">no info!</button>
@@ -15,7 +15,7 @@ export class FoodComponent {
 
 }
 
-
+// <br>{{ " you should know that: " + food.details }}<br>{{ " calories: " + food.calories }}
  //parent is:
  //FoodListComponent
 //
