@@ -1,8 +1,8 @@
 import { Component, EventEmitter} from 'angular2/core';
 import { FoodComponent } from './food.component';
 import { Food } from './food.model';
-import { EditKegDetailsComponent } from './edit-keg-details.component';
-import { NewKegComponent } from './new-keg.component';
+import { EditFoodDetailsComponent } from './edit-food-details.component';
+import { NewFoodComponent } from './new-food.component';
 import {LowPipe} from './low.pipe';
 
 
@@ -15,11 +15,13 @@ import {LowPipe} from './low.pipe';
 //[class.selected]= "currentFood === selectedFood" tells angular to add/remove .selected class based on whether the current task displayed by the *ngFor loop is equal to selectedFood or not
 //parent of:
 // FoodComponent
+
+
 @Component({
   selector: 'food-list',
   inputs: ['foodList'],
   outputs: ['onFoodSelect'],
-  directives: [FoodComponent, EditKegDetailsComponent, NewKegComponent],
+  directives: [FoodComponent, EditFoodDetailsComponent, NewFoodComponent],
   pipes: [LowPipe],
   template: `
   <select (change)="onChange($event.target.value)">
@@ -27,18 +29,18 @@ import {LowPipe} from './low.pipe';
     <option value="low">Show Low</option>
     <option value="notLow" selected="selected">Show Full(ish) Kegs</option>
   </select>
-  <keg-display *ngFor="#currentFood of foodList | low:filterLow"
+  <food-display *ngFor="#currentFood of foodList | low:filterLow"
     [class.cheap]="currentKeg.price <= 5"
     [class.expensive]="currentKeg.price >= 5"
     [class.strong]= "currentKeg.alcohol >= 6"
     (click)="foodClicked(currentFood)"
     [class.selected]= "currentFood === selectedFood"
     [food]="currentFood">
-  </keg-display>
-  <edit-keg-details *ngIf="selectedKeg"
-  [keg]="selectedKeg">
-  </edit-keg-details>
-  <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg>
+  </food-display>
+  <edit-food-details *ngIf="selectedFood"
+  [food]="selectedFood">
+  </edit-food-details>
+  <new-food (onSubmitNewFood)="createFood($event)"></new-food>
   `
 })
 
@@ -55,8 +57,8 @@ export class FoodListComponent {
     this.selectedFood = clickedFood;
     this.onFoodSelect.emit(clickedFood);
   }
-  createKeg(newKeg: Keg): void {
-    this.kegList.push(newKeg);
+  createFood(newFood: Food): void {
+    this.foodList.push(newFood);
   }
   onChange(filterOption){
     this.filterLow = filterOption;

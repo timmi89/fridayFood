@@ -6,15 +6,17 @@ import { Food } from './food.model';
     inputs: ['food'],
   template: `
     <h3>{{ food.name + " "}}{{ food.details }} {{ food.calories }} </h3>
-   <button (click)="minusPint(keg)">pour a pint</button>
-
-  `
+    `
+    // <button (click)="minusPint(keg)">pour a pint</button> (was inside templat, is outside so it can be commented out)
 })
 export class FoodComponent {
   public food: Food;
 
-  minusPint(selectedKeg: Keg){
-    this.keg.pints -= 1;
-  }
+  // minusPint(selectedKeg: Keg){
+  //   this.keg.pints -= 1;
+  // }
 }
-{{ "you have " + keg.pints + " pints left."}}
+// {{ "you have " + keg.pints + " pints left."}}
+
+ //parent is:
+ //FoodListComponent
