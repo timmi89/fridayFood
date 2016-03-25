@@ -34,9 +34,9 @@ export class AppComponent {
   public foods : Food[];
   constructor(){
     this.foods = [
-      new Food("pizza ", "lots of spinach, no beer ", 600),
-      new Food("red lentil soup ", "ate half the pot ", 299),
-      new Food("falafel gyro ", "absolutely put fries in it ", 500),
+      new Food("pizza ", "it had lots of spinach, i had no beer ", 600),
+      new Food("red lentil soup ", "i ate half the pot ", 299),
+      new Food("falafel gyro ", "i absolutely put fries in it ", 500),
       new Food("pasta and vegetables ", "half pasta, half veggies ", 350),
       new Food("greens and tofu salad ", "no bread with salad, sesame oil dressing ", 275)
     ];

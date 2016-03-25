@@ -6,10 +6,10 @@ import { Food } from "./food.model";
   outputs: ['onSubmitNewFood'],
   template: `
   <div class="food-form">
-  <h3>make a new keg</h3>
+  <h3>add a new food</h3>
   <input placeholder="food name" class="col-sm-8 input-lg" #newName>
-    <input placeholder="details" class="col-sm-8 input-lg" #newBrand>
-    <input placeholder="calories" class="col-sm-8 input-lg" #newPrice>
+  <input placeholder="details" class="col-sm-8 input-lg" #newDetails>
+  <input placeholder="calories" class="col-sm-8 input-lg" #newCalories>
 
   <button (click)="addFood(newName, newDetails, newCalories)">Add</button>
   </div>
@@ -20,7 +20,7 @@ export class NewFoodComponent {
   constructor(){
     this.onSubmitNewFood = new EventEmitter();
   }
-  addKeg(newName: HTMLInputElement, newDetails: HTMLInputElement, newCalories: HTMLInputElement){
+  addFood(newName: HTMLInputElement, newDetails: HTMLInputElement, newCalories: HTMLInputElement){
 
     var newFood = new Food(newName.value, newDetails.value, parseInt(newCalories.value));
     this.onSubmitNewFood.emit(newFood);
@@ -29,3 +29,5 @@ export class NewFoodComponent {
     newCalories.value = "";
   }
 }
+
+//child of FoodListComponent

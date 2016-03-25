@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from 'angular2/core';
-import {Keg} from './keg.model';
+import {Food} from './food.model';
 
 @Pipe({
   name: "low",
@@ -8,18 +8,18 @@ import {Keg} from './keg.model';
 })
 
 export class LowPipe implements PipeTransform {
-  transform(input: Keg[], args) {
+  transform(input: Food[], args) {
     var desiredLowState = args[0];
     if(desiredLowState === "low") {
-      return input.filter((keg) => {
-        if(keg.pints < 10) {
-         return !keg.low;
+      return input.filter((food) => {
+        if(food.calories < 300) {
+         return !food.low;
        }
       });
     } else if (desiredLowState === "notLow") {
-      return input.filter((keg) => {
-        if(keg.pints > 9){
-          return !keg.low;
+      return input.filter((food) => {
+        if(food.calories > 300){
+          return !food.low;
         }
       });
     } else {

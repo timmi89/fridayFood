@@ -5,7 +5,7 @@ import { Food } from './food.model';
     selector: 'food-display',
     inputs: ['food'],
   template: `
-    <h3>{{ food.name + " "}}{{ food.details }} {{ food.calories }} </h3>
+    <h3>{{ "i ate some: " + food.name}}<br>{{ " you should know that: " + food.details }} <br>{{ " calories: " + food.calories }} </h3>
     `
     // <button (click)="minusPint(keg)">pour a pint</button> (was inside templat, is outside so it can be commented out)
 })
