@@ -21,3 +21,5 @@ export class EditFoodDetailsComponent {
 
 
  //child of FoodListComponent
+
+ //child of FoodListComponent

@@ -13,8 +13,8 @@ h1 {
 .cheap {
   color: blue;
 }
-.expensive {
-  color: green;
+.no {
+  display: none;
 }
 .strong {
   font-style: italic;

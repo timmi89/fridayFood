@@ -23,17 +23,12 @@ import {LowPipe} from './low.pipe';
   directives: [FoodComponent, EditFoodDetailsComponent, NewFoodComponent],
   pipes: [LowPipe],
   template: `
-
   <select (change)="onChange($event.target.value)">
     <option value="all">Show All</option>
     <option value="low">Show Low Calorie</option>
     <option value="notLow" selected="selected">Show Higher Calorie</option>
   </select>
-
   <food-display *ngFor="#currentFood of foodList | low:filterLow:selectedFood"
-    [class.cheap]="currentFood.calories <= 5"
-    [class.expensive]="currentFood.calories >= 5"
-    [class.strong]= "currentFood.calories >= 6"
     (click)="foodClicked(currentFood)"
     [class.selected]= "currentFood === selectedFood"
     [food]="currentFood">
@@ -42,7 +37,6 @@ import {LowPipe} from './low.pipe';
   <edit-food-details *ngIf="selectedFood"
     [food]="selectedFood">
   </edit-food-details>
-
   <new-food (onSubmitNewFood)="createFood($event)"></new-food>
   `
 })
