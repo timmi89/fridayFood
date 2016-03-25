@@ -14,5 +14,8 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.6"
-  }
+  },
+  "authors": [
+    "timmi mcguire <timothea.mcguire@gmail.com>"
+  ]
 }
